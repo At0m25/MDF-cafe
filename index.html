@@ -89,7 +89,7 @@ tr:last-child td{border:0}
 @media (prefers-reduced-motion:reduce){.anim .b1,.anim .b2{animation:none}}
 :focus-visible{outline:3px solid var(--accent);outline-offset:2px}
 </style>
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.48.0"></script>
 </head><body><main id="app"></main>
 <script>
 const SUPABASE_URL = "https://fdnccctqjmkivavstycz.supabase.co";
@@ -224,7 +224,7 @@ document.addEventListener("click",e=>{
   else if(a==="del"){if(confirmDel===d){confirmDel=null;editing=null;w(()=>supabaseClient.from("draws").delete().eq("id",d))}else{confirmDel=d;render()}}
   else if(a==="newday"){const v=ndVal;if(!v)return;const ex=getDraw(v);if(ex&&pays(ex).length){confirmDel="edit:"+v;render();return}editing=v;w(()=>supabaseClient.from("draws").upsert([{id:v,date:v,present:[],payers:[],price,edited:true}]))}
   else if(a==="add"){const n=newName.trim();if(!n)return;newName="";if(!people.some(p=>p.active!==false&&p.name.toLowerCase()===n.toLowerCase()))w(()=>supabaseClient.from("people").insert([{name:n,active:true}]));render()}
-  else if(a==="rm")w(()=>supabaseClient.from("people").update({active:false}).eq("id",id));
+  else if(a===rm)w(()=>supabaseClient.from("people").update({active:false}).eq("id",id));
   else if(a==="react")w(()=>supabaseClient.from("people").update({active:true}).eq("id",id));
 });
 document.addEventListener("change",e=>{
@@ -239,7 +239,9 @@ document.addEventListener("keydown",e=>{if(e.key==="Enter"&&e.target.id==="nn"){
 render();
 (async()=>{
   if(!SUPABASE_URL || SUPABASE_URL.startsWith("VOTRE")){nodb=true;render();return;}
-  supabaseClient = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+  supabaseClient = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY, {
+    auth: { persistSession: false }
+  });
   
   timer=setTimeout(()=>{if(!(loaded.p&&loaded.d)){msg="Données injoignables pour l’instant. Vérifie ta connexion.";render()}},10000);
   
