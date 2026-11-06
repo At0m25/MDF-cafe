@@ -7,311 +7,61 @@
 :root{--bg:#F5F7FA;--card:#fff;--ink:#14213D;--mute:#5B6784;--line:#D9E0EC;--accent:#2F5BEA;--ai:#fff;--soft:#E4ECFD;--bad:#B3261E;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
 @media (prefers-color-scheme:dark){:root:not([data-theme="light"]){color-scheme:dark;--bg:#0F1626;--card:#18213A;--ink:#E8EDF9;--mute:#9AA6C4;--line:#2A3556;--accent:#7C9CFF;--ai:#0F1626;--soft:#222E52;--bad:#FF8F86}}
 :root[data-theme="dark"]{color-scheme:dark;--bg:#0F1626;--card:#18213A;--ink:#E8EDF9;--mute:#9AA6C4;--line:#2A3556;--accent:#7C9CFF;--ai:#0F1626;--soft:#222E52;--bad:#FF8F86}
-html{scroll-padding-top:env(safe-area-inset-top,0px)}
-*{box-sizing:border-box}
-body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.5 "Instrument Sans",system-ui,sans-serif}
-main{max-width:640px;margin:0 auto;padding:16px 16px 48px}
-h1,h2,.who{font-family:"Bricolage Grotesque",system-ui,sans-serif}
-h1{font-size:1.15rem;margin:8px 0 12px}
-h2{font-size:1rem;margin:24px 0 8px}
-nav{display:flex;gap:4px;border-bottom:1px solid var(--line);margin-bottom:20px;overflow-x:auto}
-nav button{background:none;border:0;padding:10px 12px;font:inherit;color:var(--mute);border-bottom:3px solid transparent;cursor:pointer;white-space:nowrap}
-nav button[aria-current=true]{color:var(--ink);border-color:var(--accent);font-weight:600}
-.hero{background:var(--soft);border-radius:20px;padding:28px 20px;text-align:center}
-.who{font-size:clamp(2.2rem,12vw,3.6rem);line-height:1.05;margin:0;font-weight:700;overflow-wrap:anywhere}
-.muted,.sub{color:var(--mute)}
-.sub{margin:6px 0 16px;font-size:.95rem}
-.main,.btn{background:var(--accent);color:var(--ai);border:0;border-radius:12px;padding:12px 22px;font:inherit;font-weight:600;cursor:pointer}
-.main:disabled{opacity:.4;cursor:not-allowed}
-.ghost{background:none;border:1px solid var(--line);color:var(--ink);border-radius:10px;padding:6px 12px;font:inherit;cursor:pointer}
-.danger{color:var(--bad);margin-top:12px}
-.opt{display:flex;gap:8px;justify-content:center;align-items:center;font-size:.9rem;color:var(--mute);margin-top:14px}
-.list{list-style:none;margin:0;padding:0;background:var(--card);border:1px solid var(--line);border-radius:14px}
-.list li{border-bottom:1px solid var(--line)}
-.list li:last-child{border:0}
-.list label,.pl{display:flex;gap:12px;align-items:center;padding:12px 14px;cursor:pointer}
-.pl{justify-content:space-between}
-input[type=checkbox]{width:20px;height:20px;accent-color:var(--accent)}
-input[type=text],input[type=date],select{font:inherit;color:var(--ink);background:var(--card);border:1px solid var(--line);border-radius:10px;padding:10px 12px;min-width:0}
-.row{display:flex;gap:8px;margin-bottom:14px}
-.row input{flex:1}
-.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px;margin-bottom:10px}
-.hd{display:flex;justify-content:space-between;gap:10px;align-items:center}
-.fld{display:block;margin:14px 0 8px;color:var(--mute);font-size:.9rem}
-.fld select{display:block;width:100%;margin-top:4px}
-.chips{display:flex;flex-wrap:wrap;gap:8px}
-.chips label{display:flex;gap:6px;align-items:center;border:1px solid var(--line);border-radius:999px;padding:6px 12px;cursor:pointer}
-.tw{overflow-x:auto;background:var(--card);border:1px solid var(--line);border-radius:14px}
-table{border-collapse:collapse;width:100%;min-width:540px}
-th,td{padding:6px 10px;text-align:right;border-bottom:1px solid var(--line)}
-th:first-child,td:first-child{text-align:left}
-th{font-weight:600;color:var(--mute);font-size:.85rem}
-tr:last-child td{border:0}
-.empty{color:var(--mute);padding:14px}
-.err{color:var(--bad)}
-.chart{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px;margin-bottom:16px}
-.lg{display:flex;gap:6px;align-items:center;color:var(--mute);font-size:.85rem;margin:0 0 10px}
-.k1,.k2{width:12px;height:12px;border-radius:3px;display:inline-block}
-.k1{background:color-mix(in srgb,var(--mute) 45%,var(--card))}
-.k2{background:var(--accent);margin-left:10px}
-.br{display:grid;grid-template-columns:5.5rem 1fr 3rem;gap:8px;align-items:center;margin:8px 0}
-.bn{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
-.bt{height:22px}
-.b1{display:block;height:100%;background:color-mix(in srgb,var(--mute) 45%,var(--card));border-radius:6px;transform-origin:left;overflow:hidden;min-width:6px}
-.b2{display:block;height:100%;background:var(--accent);border-radius:6px;transform-origin:left}
-.bv{text-align:right;font-weight:600}
-.anim .b1{animation:grow .7s ease-out both;animation-delay:calc(var(--i)*70ms)}
-.anim .b2{animation:grow .9s ease-out both;animation-delay:calc(var(--i)*70ms + .3s)}
-@keyframes grow{from{transform:scaleX(0)}}
-.recs{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:8px;margin-bottom:16px}
-.rec{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:10px 12px;display:flex;flex-direction:column}
-.rl{color:var(--mute);font-size:.75rem}
-.rec b{font-family:"Bricolage Grotesque",system-ui,sans-serif;font-size:1.1rem;line-height:1.2;overflow-wrap:anywhere}
-.rd{color:var(--mute);font-size:.8rem}
-.yr{background:var(--card);border:1px solid var(--line);color:var(--ink);border-radius:999px;padding:6px 14px;font:inherit;cursor:pointer}
-.yr[aria-current=true]{background:var(--accent);color:var(--ai);border-color:var(--accent)}
-.pc{margin:9px 0}
-.ph{display:flex;justify-content:space-between;gap:8px;font-size:.85rem;margin-bottom:2px}
-.ph span{color:var(--mute)}
-.pr{display:grid;grid-template-columns:4.5rem 1fr 2rem;gap:6px;align-items:center;margin:1px 0}
-.pl{color:var(--mute);font-size:.8rem}
-.pt{height:11px}
-.pn{text-align:right;font-weight:600}
-.rc{position:fixed;inset:0;background:rgba(10,15,30,.6);display:flex;align-items:center;justify-content:center;padding:max(16px,env(safe-area-inset-top,0px)) 16px;z-index:50}
-.rb{background:var(--card);color:var(--ink);border-radius:18px;padding:16px;width:100%;max-width:560px;max-height:88vh;overflow:auto}
-.rb h2{margin:0 0 12px;text-align:center}
-.ln{display:grid;grid-template-columns:5rem 1fr;gap:8px;align-items:center;margin:6px 0}
-.ln-n{font-size:.85rem;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
-.ln-t{position:relative;height:28px;border-bottom:2px dashed var(--line);border-right:4px solid var(--accent)}
-.tk{position:absolute;left:0;top:0;width:28px;height:28px;border-radius:50%;background:var(--accent);color:var(--ai);display:grid;place-items:center;font-weight:700;font-size:.85rem}
-.tk.lo{background:var(--bad)}
-.rr{text-align:center;font-weight:700;min-height:1.5em;font-family:"Bricolage Grotesque",system-ui,sans-serif;font-size:1.2rem;margin:12px 0}
-@media (prefers-reduced-motion:reduce){.anim .b1,.anim .b2{animation:none}}
-:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+html{scroll-padding-top:env(safe-area-inset-top,0px)} *{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.5 "Instrument Sans",system-ui,sans-serif} main{max-width:640px;margin:0 auto;padding:16px 16px 48px}
+h1,h2,.who{font-family:"Bricolage Grotesque",system-ui,sans-serif} h1{font-size:1.15rem;margin:8px 0 12px} h2{font-size:1rem;margin:24px 0 8px}
+nav{display:flex;gap:4px;border-bottom:1px solid var(--line);margin-bottom:20px;overflow-x:auto} nav button{background:none;border:0;padding:10px 12px;font:inherit;color:var(--mute);border-bottom:3px solid transparent;cursor:pointer;white-space:nowrap} nav button[aria-current=true]{color:var(--ink);border-color:var(--accent);font-weight:600}
+.hero{background:var(--soft);border-radius:20px;padding:28px 20px;text-align:center}.who{font-size:clamp(2.2rem,12vw,3.6rem);line-height:1.05;margin:0;font-weight:700;overflow-wrap:anywhere}.muted,.sub{color:var(--mute)}.sub{margin:6px 0 16px;font-size:.95rem}
+.main,.btn{background:var(--accent);color:var(--ai);border:0;border-radius:12px;padding:12px 22px;font:inherit;font-weight:600;cursor:pointer}.main:disabled{opacity:.4;cursor:not-allowed}.ghost{background:none;border:1px solid var(--line);color:var(--ink);border-radius:10px;padding:6px 12px;font:inherit;cursor:pointer}.danger{color:var(--bad);margin-top:12px}
+.opt{display:flex;gap:8px;justify-content:center;align-items:center;font-size:.9rem;color:var(--mute);margin-top:14px}.list{list-style:none;margin:0;padding:0;background:var(--card);border:1px solid var(--line);border-radius:14px}.list li{border-bottom:1px solid var(--line)}.list li:last-child{border:0}.list label,.pl{display:flex;gap:12px;align-items:center;padding:12px 14px;cursor:pointer}.pl{justify-content:space-between}
+input[type=checkbox]{width:20px;height:20px;accent-color:var(--accent)}input[type=text],input[type=date],select{font:inherit;color:var(--ink);background:var(--card);border:1px solid var(--line);border-radius:10px;padding:10px 12px;min-width:0}.row{display:flex;gap:8px;margin-bottom:14px}.row input{flex:1}.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px;margin-bottom:10px}.hd{display:flex;justify-content:space-between;gap:10px;align-items:center}.fld{display:block;margin:14px 0 8px;color:var(--mute);font-size:.9rem}.fld select{display:block;width:100%;margin-top:4px}.chips{display:flex;flex-wrap:wrap;gap:8px}.chips label{display:flex;gap:6px;align-items:center;border:1px solid var(--line);border-radius:999px;padding:6px 12px;cursor:pointer}
+.tw{overflow-x:auto;background:var(--card);border:1px solid var(--line);border-radius:14px}table{border-collapse:collapse;width:100%;min-width:540px}th,td{padding:6px 10px;text-align:right;border-bottom:1px solid var(--line)}th:first-child,td:first-child{text-align:left}th{font-weight:600;color:var(--mute);font-size:.85rem}tr:last-child td{border:0}.empty{color:var(--mute);padding:14px}.err{color:var(--bad)}.chart{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px;margin-bottom:16px}.lg{display:flex;gap:6px;align-items:center;color:var(--mute);font-size:.85rem;margin:0 0 10px}.k1,.k2{width:12px;height:12px;border-radius:3px;display:inline-block}.k1{background:color-mix(in srgb,var(--mute) 45%,var(--card))}.k2{background:var(--accent);margin-left:10px}
+.br{display:grid;grid-template-columns:5.5rem 1fr 3rem;gap:8px;align-items:center;margin:8px 0}.bn{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.bt{height:22px}.b1{display:block;height:100%;background:color-mix(in srgb,var(--mute) 45%,var(--card));border-radius:6px;transform-origin:left;overflow:hidden;min-width:6px}.b2{display:block;height:100%;background:var(--accent);border-radius:6px;transform-origin:left}.bv{text-align:right;font-weight:600}.anim .b1{animation:grow .7s ease-out both;animation-delay:calc(var(--i)*70ms)}.anim .b2{animation:grow .9s ease-out both;animation-delay:calc(var(--i)*70ms + .3s)}@keyframes grow{from{transform:scaleX(0)}}
+.recs{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:8px;margin-bottom:16px}.rec{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:10px 12px;display:flex;flex-direction:column}.rl{color:var(--mute);font-size:.75rem}.rec b{font-family:"Bricolage Grotesque",system-ui,sans-serif;font-size:1.1rem;line-height:1.2;overflow-wrap:anywhere}.rd{color:var(--mute);font-size:.8rem}.yr{background:var(--card);border:1px solid var(--line);color:var(--ink);border-radius:999px;padding:6px 14px;font:inherit;cursor:pointer}.yr[aria-current=true]{background:var(--accent);color:var(--ai);border-color:var(--accent)}.pc{margin:9px 0}.ph{display:flex;justify-content:space-between;gap:8px;font-size:.85rem;margin-bottom:2px}.ph span{color:var(--mute)}.pr{display:grid;grid-template-columns:4.5rem 1fr 2rem;gap:6px;align-items:center;margin:1px 0}.pl{color:var(--mute);font-size:.8rem}.pt{height:11px}.pn{text-align:right;font-weight:600}
+.rc{position:fixed;inset:0;background:rgba(10,15,30,.6);display:flex;align-items:center;justify-content:center;padding:max(16px,env(safe-area-inset-top,0px)) 16px;z-index:50}.rb{background:var(--card);color:var(--ink);border-radius:18px;padding:16px;width:100%;max-width:560px;max-height:88vh;overflow:auto}.rb h2{margin:0 0 12px;text-align:center}.ln{display:grid;grid-template-columns:5rem 1fr;gap:8px;align-items:center;margin:6px 0}.ln-n{font-size:.85rem;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.ln-t{position:relative;height:28px;border-bottom:2px dashed var(--line);border-right:4px solid var(--accent)}.tk{position:absolute;left:0;top:0;width:28px;height:28px;border-radius:50%;background:var(--accent);color:var(--ai);display:grid;place-items:center;font-weight:700;font-size:.85rem}.tk.lo{background:var(--bad)}.rr{text-align:center;font-weight:700;min-height:1.5em;font-family:"Bricolage Grotesque",system-ui,sans-serif;font-size:1.2rem;margin:12px 0}@media (prefers-reduced-motion:reduce){.anim .b1,.anim .b2{animation:none}}:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
 </style>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.48.0"></script>
 </head><body><main id="app"></main>
 <script>
-const SUPABASE_URL = "https://fdnccctqjmkivavstycz.supabase.co";
-const SUPABASE_ANON_KEY = "sb_publishable_d-DFQXoKl0XgIcqRLhG8vg_CYjaPCcM";
-
-const $=s=>document.querySelector(s),app=$("#app");
-let supabaseClient=null,people=[],draws=[],tab="today",editing=null,confirmDel=null,msg="",price=0,anim=false,statYear=String(new Date().getFullYear()),newName="",ndVal="",nodb=false,loaded={p:false,d:false},timer=null;
+const SUPABASE_URL="https://fdnccctqjmkivavstycz.supabase.co";
+const SUPABASE_ANON_KEY="sb_publishable_d-DFQXoKl0XgIcqRLhG8vg_CYjaPCcM";
+const app=document.querySelector("#app");
+const state={db:null,people:[],draws:[],tab:"today",editing:null,confirmDel:null,msg:"",price:0,anim:false,statYear:String(new Date().getFullYear()),newName:"",ndVal:"",nodb:false,loaded:{people:false,draws:false,settings:false},timer:null,chain:Promise.resolve()};
 const pad=n=>String(n).padStart(2,"0");
 const todayStr=()=>{const d=new Date();return d.getFullYear()+"-"+pad(d.getMonth()+1)+"-"+pad(d.getDate())};
 const fmt=s=>new Date(s+"T12:00:00").toLocaleDateString("fr-FR",{weekday:"short",day:"numeric",month:"short"});
 const esc=s=>String(s).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
 const byName=(a,b)=>(a.name||"").localeCompare(b.name||"","fr");
-const nameOf=id=>(people.find(p=>p.id===id)||{}).name||"(supprimé)";
-const getDraw=id=>draws.find(d=>d.id===id);
+const nameOf=id=>(state.people.find(p=>p.id===id)||{}).name||"(supprimé)";
+const getDraw=id=>state.draws.find(d=>d.id===id);
 const pays=d=>d.payers||(d.payer?[d.payer]:[]);
 const list=a=>a.map(nameOf).join(" et ");
-const priceOf=d=>d.id===todayStr()?price:(d.price||price);
+const priceOf=d=>d.id===todayStr()?state.price:(d.price||state.price);
 const amt=d=>(d.present||[]).length*priceOf(d);
 const eur=n=>n.toLocaleString("fr-FR",{style:"currency",currency:"EUR"});
-const yd=()=>draws.filter(d=>d.id.slice(0,4)===statYear);
-ndVal=todayStr();
-let chain=Promise.resolve();
-function w(fn){chain=chain.then(fn).catch(e=>{msg="Enregistrement impossible : "+((e&&(e.message||e.code))||"erreur");render()});return chain}
-function stats(skip){const s={};yd().forEach(d=>{if(d.id===skip)return;(d.present||[]).forEach(id=>{(s[id]=s[id]||{n:0,p:0,m:0,last:""}).n++});pays(d).forEach(id=>{const o=s[id]=s[id]||{n:0,p:0,m:0,last:""};o.p++;o.m+=amt(d)/pays(d).length;if(d.id>o.last)o.last=d.id})});return s}
-function prevDraw(){const t=todayStr();return draws.filter(d=>d.id<t&&pays(d).length).sort((a,b)=>a.id<b.id?1:-1)[0]}
-function pick(){
-  const t=todayStr(),cur=getDraw(t),present=(cur&&cur.present)||[];
-  if(!present.length)return;
-  const pv=prevDraw();
-  const ex=pv?pays(pv):[],k=Math.min(present.length>5?2:1,present.length),sh=a=>a.map(x=>[Math.random(),x]).sort((a,b)=>a[0]-b[0]).map(x=>x[1]);const pool=present.filter(id=>!ex.includes(id));
-  let c=sh(pool).slice(0,k);if(c.length<k)c=c.concat(sh(present.filter(id=>!c.includes(id))).slice(0,k-c.length));
-  
-  race(present,c,()=>w(()=>supabaseClient.from("draws").upsert([{id:t,date:t,present,payers:c,price,edited:false}])));
-}
+const yd=()=>state.draws.filter(d=>d.id.slice(0,4)===state.statYear);
+state.ndVal=todayStr();
+function render(){const activeId=document.activeElement&&document.activeElement.id;let view;if(state.nodb)view='<p class="empty">Veuillez renseigner les clés SUPABASE_URL et SUPABASE_ANON_KEY dans le fichier HTML.</p>';else if(!(state.loaded.people&&state.loaded.draws&&state.loaded.settings))view='<p class="empty">Chargement…</p>';else view={today:vToday,hist:vHist,stats:vStats,team:vTeam,opts:vOpts}[state.tab]();app.innerHTML=`<h1>Qui paie le café ?</h1>${state.msg?`<p class="err" role="alert">${esc(state.msg)}</p>`:""}<nav>${[["today","Aujourd’hui"],["hist","Historique"],["stats","Stats"],["team","Équipe"],["opts","Options"]].map(([k,l])=>`<button data-act="tab" data-v="${k}" ${state.tab===k?'aria-current="true"':""}>${l}</button>`).join("")}</nav>${view}`;if(activeId){const el=document.getElementById(activeId);if(el)el.focus()}state.anim=false}
+async function fetchAll(){if(!state.db)return;const [p,d,s]=await Promise.all([state.db.from("people").select("*"),state.db.from("draws").select("*"),state.db.from("settings").select("*").eq("key","main").maybeSingle()]);if(p.error)throw p.error;if(d.error)throw d.error;if(s.error)throw s.error;state.people=p.data||[];state.draws=d.data||[];state.price=s.data?.price||0;state.loaded={people:true,draws:true,settings:true};if(state.timer)clearTimeout(state.timer);state.msg="";render()}
+function persist(fn){state.chain=state.chain.then(async()=>{const r=await fn();if(r?.error)throw r.error;await fetchAll()}).catch(e=>{state.msg="Enregistrement impossible : "+((e&&(e.message||e.code))||"erreur");render()});return state.chain}
+function stats(skip){const s={};yd().forEach(d=>{if(d.id===skip)return;(d.present||[]).forEach(id=>{(s[id]=s[id]||{n:0,p:0,m:0,last:""}).n++});pays(d).forEach(id=>{const o=s[id]=s[id]||{n:0,p:0,m:0,last:""};o.p++;o.m+=amt(d)/Math.max(1,pays(d).length);if(d.id>o.last)o.last=d.id})});return s}
+function prevDraw(){const t=todayStr();return state.draws.filter(d=>d.id<t&&pays(d).length).sort((a,b)=>a.id<b.id?1:-1)[0]}
+function pick(){const t=todayStr(),cur=getDraw(t),present=(cur&&cur.present)||[];if(!present.length)return;const pv=prevDraw(),ex=pv?pays(pv):[],k=Math.min(present.length>5?2:1,present.length),sh=a=>a.map(x=>[Math.random(),x]).sort((a,b)=>a[0]-b[0]).map(x=>x[1]),pool=present.filter(id=>!ex.includes(id));let c=sh(pool).slice(0,k);if(c.length<k)c=c.concat(sh(present.filter(id=>!c.includes(id))).slice(0,k-c.length));race(present,c,()=>persist(()=>state.db.from("draws").upsert([{id:t,date:t,present,payers:c,price:state.price,edited:false}])))}
 let racing=false;
-function race(present,c,done){
-  if(racing)return;
-  if(present.length<2||matchMedia("(prefers-reduced-motion:reduce)").matches){done();return}
-  racing=true;
-  const L=present.map(id=>{const i=c.indexOf(id);return{id,T:i<0?3+Math.random()*1.8:5.6+i*.6+Math.random()*.4,a:.6+Math.random()*.9}});
-  const ov=document.createElement("div");ov.className="rc";
-  ov.innerHTML=`<div class="rb"><h2>${c.length>1?"Les deux derniers paient":"Le dernier paie"} le café</h2>${L.map(l=>`<div class="ln"><span class="ln-n">${esc(nameOf(l.id))}</span><div class="ln-t"><span class="tk">${esc(nameOf(l.id).charAt(0).toUpperCase())}</span></div></div>`).join("")}<p class="rr" aria-live="polite"></p><button class="ghost" type="button">Passer</button></div>`;
-  document.body.appendChild(ov);
-  const tk=[...ov.querySelectorAll(".tk")],t0=performance.now(),tm=Math.max(...L.map(l=>l.T));
-  let raf=0,fin=false;
-  const finish=()=>{if(fin)return;fin=true;cancelAnimationFrame(raf);tk.forEach((e,i)=>{e.style.left="calc(100% - 28px)";if(c.includes(L[i].id))e.classList.add("lo")});ov.querySelector(".rr").textContent=list(c)+(c.length>1?" paient":" paie")+" le café !";setTimeout(()=>{ov.remove();racing=false;done()},1800)};
-  const step=now=>{const s=(now-t0)/1000;L.forEach((l,i)=>{const p=Math.pow(Math.min(1,s/l.T),l.a);tk[i].style.left="calc((100% - 28px)*"+p+")"});if(s<tm)raf=requestAnimationFrame(step);else finish()};
-  ov.querySelector("button").onclick=finish;
-  raf=requestAnimationFrame(step);
-}
-function togglePresent(id){
-  const t = todayStr();
-  const index = draws.findIndex(d => d.id === t);
-  const previous = index >= 0 ? draws[index] : null;
-  const cur = previous || {id:t, date:t, present:[], payers:[], edited:false};
-
-  const present = cur.present.includes(id)
-    ? cur.present.filter(x => x !== id)
-    : [...cur.present, id];
-
-  const next = {
-    ...cur,
-    id: t,
-    date: t,
-    present,
-    payers: pays(cur).filter(x => present.includes(x)),
-    price,
-    edited: !!cur.edited
-  };
-
-  // Mise à jour locale immédiate
-  if (index >= 0) draws[index] = next;
-  else draws.push(next);
-
-  msg = "";
-  render();
-
-  // Enregistrement en arrière-plan dans Supabase
-  w(async () => {
-    const { error } = await supabaseClient
-      .from("draws")
-      .upsert([next]);
-
-    if (error) {
-      // Restaure les données précédentes si l'enregistrement échoue
-      const currentIndex = draws.findIndex(d => d.id === t);
-      if (previous) {
-        if (currentIndex >= 0) draws[currentIndex] = previous;
-        else draws.push(previous);
-      } else {
-        draws = draws.filter(d => d.id !== t);
-      }
-      throw error;
-    }
-  });
-}
-function upd(id,fn){
-  const d=getDraw(id);if(!d)return;
-  const n={id,date:id,present:[...(d.present||[])],payers:[...pays(d)],price:priceOf(d),edited:true};
-  fn(n);w(()=>supabaseClient.from("draws").upsert([n]));
-}
-function vToday(){
-  const t=todayStr(),cur=getDraw(t),pr=(cur&&cur.present)||[],act=people.filter(p=>p.active!==false).sort(byName),pv=prevDraw(),py=cur?pays(cur):[],has=py.length;
-  return `<section class="hero">${has?`<p class="who">${esc(list(py))}</p><p class="sub">${has>1?"paient":"paie"} le café aujourd’hui</p>`:`<p class="who muted">Qui paie ?</p><p class="sub">Coche les présents, puis lance la course.</p>`}
-<button class="main" data-act="draw" ${pr.length?"":"disabled"}>${has?(confirmDel==="redraw"?"Confirmer : remplacer le tirage du jour":"Relancer la course"):"Lancer la course"}</button><button class="ghost" data-act="selall" style="margin-left:8px">${act.length&&act.every(p=>pr.includes(p.id))?"Tout désélectionner":"Tout sélectionner"}</button>
-
-<p class="sub" style="margin:14px 0 0">${pr.length} participant${pr.length>1?"s":""} aujourd’hui</p>
-${pv?`<p class="sub" style="margin:4px 0 0">Dernier tirage : ${esc(list(pays(pv)))}, le ${fmt(pv.id)}. À l’écart du tirage.</p>`:""}</section>
-<h2>Présents aujourd’hui (${pr.length})</h2><ul class="list">${act.map(p=>`<li><label><input type="checkbox" data-act="pres" data-id="${p.id}" ${pr.includes(p.id)?"checked":""}><span>${esc(p.name)}</span></label></li>`).join("")||`<li class="empty">Ajoute des personnes dans l’onglet Équipe.</li>`}</ul>`;
-}
-function vHist(){
-  const l=[...draws].sort((a,b)=>a.id<b.id?1:-1);
-  return `<div class="row"><input type="date" id="nd" value="${ndVal}"><button class="btn" data-act="newday">Ajouter un jour</button></div>`+
-  (l.map(d=>{const o=editing===d.id,pr=d.present||[];
-    return `<div class="card"><div class="hd"><div><b>${fmt(d.id)}</b><br><span class="muted">${pays(d).length?esc(list(pays(d)))+(pays(d).length>1?" ont payé":" a payé"):"Pas de payeur"}, ${pr.length} présents${priceOf(d)&&pr.length?", "+eur(amt(d)):""}${d.edited?", modifié":""}</span></div><button class="ghost" data-act="edit" data-d="${d.id}">${o?"Fermer":(confirmDel==="edit:"+d.id?"Confirmer":"Modifier")}</button></div>${confirmDel==="edit:"+d.id?`<p class="sub" style="margin:8px 0 0">Ce tirage a déjà eu lieu. Appuie sur Confirmer pour le modifier.</p>`:""}`+
-    (o?`<p class="fld">Qui a payé</p><div class="chips">${people.filter(p=>p.active!==false||pays(d).includes(p.id)||pr.includes(p.id)).map(p=>`<label><input type="checkbox" data-act="hpay" data-d="${d.id}" data-id="${p.id}" ${pays(d).includes(p.id)?"checked":""}>${esc(p.name)}</label>`).join("")}</div><p class="fld">Présents</p><div class="chips">${people.filter(p=>p.active!==false||pr.includes(p.id)).map(p=>`<label><input type="checkbox" data-act="hpres" data-d="${d.id}" data-id="${p.id}" ${pr.includes(p.id)?"checked":""}>${esc(p.name)}</label>`).join("")}</div><button class="ghost danger" data-act="del" data-d="${d.id}">${confirmDel===d.id?"Confirmer la suppression":"Supprimer ce jour"}</button>`:"")+`</div>`}).join("")||`<p class="empty">Aucun tirage pour l’instant.</p>`);
-}
-function vRecs(st){
-  const rs=people.map(p=>({p,s:st[p.id]||{n:0,p:0}})).filter(r=>r.s.n>0);
-  if(!rs.length)return"";
-  const ds=yd().filter(d=>(d.present||[]).length).sort((a,b)=>a.id<b.id?-1:1),cur={},best={},c=[];
-  ds.forEach(d=>{const pa=pays(d);(d.present||[]).forEach(id=>{if(pa.includes(id))cur[id]=0;else{cur[id]=(cur[id]||0)+1;if(cur[id]>(best[id]||0))best[id]=cur[id]}})});
-  const mx=(a,f)=>a.reduce((x,y)=>f(y)>f(x)?y:x,a[0]),s=n=>n>1?"s":"";
-  const gp=mx(rs,r=>r.s.p);
-  if(gp.s.p>0)c.push(["Plus gros payeur",gp.p.name,`${gp.s.p} café${s(gp.s.p)} payé${s(gp.s.p)}`]);
-  const lk=[...rs].sort((a,b)=>a.s.p/a.s.n-b.s.p/b.s.n||b.s.n-a.s.n)[0];
-  c.push(["Le plus chanceux",lk.p.name,`${lk.s.n} présence${s(lk.s.n)}, ${lk.s.p} payé${s(lk.s.p)}`]);
-  const pool=rs.filter(r=>r.s.n>=3),ul=[...(pool.length?pool:rs)].sort((a,b)=>b.s.p/b.s.n-a.s.p/a.s.n||b.s.n-a.s.n)[0];
-  if(ul.s.p>0)c.push(["Le plus malchanceux",ul.p.name,`${Math.round(100*ul.s.p/ul.s.n)} % de ses présences`]);
-  const bk=Object.keys(best);
-  if(bk.length){const b=mx(bk,id=>best[id]);c.push(["Plus longue série sans payer",nameOf(b),`${best[b]} présence${s(best[b])} d’affilée`])}
-  const ak=people.filter(p=>p.active!==false&&cur[p.id]>0);
-  if(ak.length){const a=mx(ak,p=>cur[p.id]);c.push(["Série en cours",a.name,`${cur[a.id]} présence${s(cur[a.id])} sans payer`])}
-  if(ds.length){const t=mx(ds,d=>d.present.length);c.push(["Plus grosse tablée",fmt(t.id),`${t.present.length} présents`+(priceOf(t)?", "+eur(amt(t)):"")])}
-  return `<h2>Records</h2><div class="recs">${c.map(x=>`<div class="rec"><span class="rl">${x[0]}</span><b>${esc(x[1])}</b><span class="rd">${esc(x[2])}</span></div>`).join("")}</div>`;
-}
-function vYears(){
-  const cy=String(new Date().getFullYear()),ys=[...new Set([cy,...draws.map(d=>d.id.slice(0,4))])].sort().reverse();
-  return `<h2>Années</h2><div class="chips">${ys.map(y=>`<button class="yr" data-act="year" data-v="${y}" ${y===statYear?'aria-current="true"':""}>${y}${y===cy?" (en cours)":""}</button>`).join("")}</div><p class="sub" style="margin-top:8px">Les compteurs repartent de zéro chaque année. Les années passées restent consultables ici.</p>`;
-}
-function vStats(){
-  const st=stats(),rows=people.map(p=>({p,s:st[p.id]||{n:0,p:0,m:0,last:""}})).filter(r=>r.p.active!==false||r.s.n>0).sort((a,b)=>b.s.p-a.s.p||byName(a.p,b.p));
-  const dr=yd().filter(d=>pays(d).length),tot=dr.reduce((s,d)=>s+amt(d),0),nd=dr.length||1,cr=rows.filter(r=>r.s.n).sort((a,b)=>b.s.p/b.s.n-a.s.p/a.s.n||b.s.n-a.s.n),mx=Math.max(1,...cr.map(r=>r.s.n));
-  const chart=cr.length?`<h2>Qui paie le plus selon ses présences</h2><div class="chart ${anim?"anim":""}"><p class="lg"><span class="k1"></span>Présences<span class="k2"></span>Payés</p><p class="sub" style="margin:0 0 8px">Classés de celui qui paie le plus souvent, par rapport à ses présences, à celui qui paie le moins.</p>${cr.map((r,i)=>`<div class="pc"><div class="ph"><b>${esc(r.p.name)}</b><span>${r.s.p} payé${r.s.p>1?"s":""} sur ${r.s.n} présence${r.s.n>1?"s":""}, soit ${Math.round(100*r.s.p/r.s.n)} %</span></div><div class="pr"><span class="pl">Présences</span><div class="pt"><span class="b1" style="width:${100*r.s.n/mx}%;--i:${i}"></span></div><span class="pn">${r.s.n}</span></div><div class="pr"><span class="pl">Payés</span><div class="pt"><span class="b2" style="width:${100*r.s.p/mx}%;--i:${i}"></span></div><span class="pn">${r.s.p}</span></div></div>`).join("")}</div>`:"";
-  return `<p class="sub">${yd().reduce((s,d)=>s+pays(d).length,0)} cafés payés en ${statYear}.${tot?` Montant total : ${eur(tot)}, soit ${eur(tot/nd)} par tirage en moyenne.`:(price?"":" Définis le prix du café dans Options pour voir les montants.")}</p>${vRecs(st)}${chart}<div class="tw"><table><tr><th>Nom</th><th>Présences</th><th>Payés</th><th>Part payée</th><th>Montant</th><th>Dernier</th></tr>${rows.map(r=>`<tr><td>${esc(r.p.name)}</td><td>${r.s.n}</td><td>${r.s.p}</td><td>${r.s.n?Math.round(100*r.s.p/r.s.n)+" %":"–"}</td><td>${r.s.m?eur(r.s.m):"–"}</td><td>${r.s.last?fmt(r.s.last):"–"}</td></tr>`).join("")||`<tr><td class="empty" colspan="6">Pas encore de données.</td></tr>`}</table></div>${vYears()}`;
-}
-function vTeam(){
-  const a=people.filter(p=>p.active!==false).sort(byName),i=people.filter(p=>p.active===false).sort(byName);
-  return `<div class="row"><input type="text" id="nn" placeholder="Prénom" value="${esc(newName)}" autocomplete="off"><button class="btn" data-act="add">Ajouter</button></div><ul class="list">${a.map(p=>`<li class="pl"><span>${esc(p.name)}</span><button class="ghost" data-act="rm" data-id="${p.id}">Retirer</button></li>`).join("")||`<li class="empty">Personne pour l’instant.</li>`}</ul>`+
-  (i.length?`<h2>Anciens</h2><ul class="list">${i.map(p=>`<li class="pl"><span>${esc(p.name)}</span><button class="ghost" data-act="react" data-id="${p.id}">Réactiver</button></li>`).join("")}</ul><p class="sub">Leur historique reste dans les statistiques.</p>`:"");
-}
-function vOpts(){
-  return `<label class="fld">Prix d’un café (€)<input type="text" inputmode="decimal" id="pr" data-act="price" value="${price?String(price).replace(".",","):""}" placeholder="1,20" autocomplete="off" style="display:block;margin-top:4px;width:100%"></label><p class="sub">Sert à calculer le montant de chaque tirage et ce que chacun a payé. Un tirage passé garde le prix en vigueur lors de son dernier enregistrement.</p>`;
-}
-function render(){
-  const a=document.activeElement&&document.activeElement.id;
-  let v;
-  if(nodb)v=`<p class="empty">Veuillez renseigner les clés SUPABASE_URL et SUPABASE_ANON_KEY dans le fichier HTML.</p>`;
-  else if(!(loaded.p&&loaded.d))v=`<p class="empty">Chargement…</p>`;
-  else v={today:vToday,hist:vHist,stats:vStats,team:vTeam,opts:vOpts}[tab]();
-  app.innerHTML=`<h1>Qui paie le café ?</h1>${msg?`<p class="err" role="alert">${esc(msg)}</p>`:""}<nav>${[["today","Aujourd’hui"],["hist","Historique"],["stats","Stats"],["team","Équipe"],["opts","Options"]].map(([k,l])=>`<button data-act="tab" data-v="${k}" ${tab===k?'aria-current="true"':""}>${l}</button>`).join("")}</nav>${v}`;
-  if(a){const e=document.getElementById(a);if(e)e.focus()}
-  anim=false;
-}
-document.addEventListener("click",e=>{
-  const b=e.target.closest("button[data-act]");if(!b)return;
-  const a=b.dataset.act,d=b.dataset.d,id=b.dataset.id;
-  if(a==="year"){statYear=b.dataset.v;anim=true;render()}
-  else if(a==="tab"){tab=b.dataset.v;anim=tab==="stats";editing=null;confirmDel=null;render()}
-  else if(a==="draw"){const t=todayStr(),cur=getDraw(t);if(cur&&pays(cur).length&&confirmDel!=="redraw"){confirmDel="redraw";render();return}confirmDel=null;pick()}
-  else if(a==="selall"){const t=todayStr(),cur=getDraw(t)||{present:[],payers:[],edited:false},py=pays(cur),act=people.filter(p=>p.active!==false).map(p=>p.id);if(!act.length)return;const all=act.every(id=>cur.present.includes(id)),present=all?[...py]:[...new Set([...cur.present,...act])];w(()=>supabaseClient.from("draws").upsert([{id:t,date:t,present,payers:py,price,edited:!!cur.edited}]))}
-  else if(a==="edit"){if(editing===d){editing=null;confirmDel=null}else if(confirmDel==="edit:"+d){editing=d;confirmDel=null}else confirmDel="edit:"+d;render()}
-  else if(a==="del"){if(confirmDel===d){confirmDel=null;editing=null;w(()=>supabaseClient.from("draws").delete().eq("id",d))}else{confirmDel=d;render()}}
-  else if(a==="newday"){const v=ndVal;if(!v)return;const ex=getDraw(v);if(ex&&pays(ex).length){confirmDel="edit:"+v;render();return}editing=v;w(()=>supabaseClient.from("draws").upsert([{id:v,date:v,present:[],payers:[],price,edited:true}]))}
-  else if(a==="add"){const n=newName.trim();if(!n)return;newName="";if(!people.some(p=>p.active!==false&&p.name.toLowerCase()===n.toLowerCase()))w(()=>supabaseClient.from("people").insert([{name:n,active:true}]));render()}
-  else if(a===rm)w(()=>supabaseClient.from("people").update({active:false}).eq("id",id));
-  else if(a==="react")w(()=>supabaseClient.from("people").update({active:true}).eq("id",id));
-});
-document.addEventListener("change",e=>{
-  const t=e.target,a=t.dataset.act,d=t.dataset.d,id=t.dataset.id;
-  if(a==="pres")togglePresent(id);
-  else if(a==="price"){const v=parseFloat(t.value.replace(",","."));if(v>=0)w(()=>supabaseClient.from("settings").upsert([{key:"main",price:v}]))}
-  else if(a==="hpres")upd(d,n=>{n.present=n.present.includes(id)?n.present.filter(x=>x!==id):[...n.present,id];n.payers=n.payers.filter(x=>n.present.includes(x))});
-  else if(a==="hpay")upd(d,n=>{n.payers=n.payers.includes(id)?n.payers.filter(x=>x!==id):[...n.payers,id];if(n.payers.includes(id)&&!n.present.includes(id))n.present.push(id)});
-});
-document.addEventListener("input",e=>{if(e.target.id==="nn")newName=e.target.value;if(e.target.id==="nd")ndVal=e.target.value});
+function race(present,c,done){if(racing)return;if(present.length<2||matchMedia("(prefers-reduced-motion:reduce)").matches){done();return}racing=true;const L=present.map(id=>{const i=c.indexOf(id);return{id,T:i<0?3+Math.random()*1.8:5.6+i*.6+Math.random()*.4,a:.6+Math.random()*.9}});const ov=document.createElement("div");ov.className="rc";ov.innerHTML=`<div class="rb"><h2>${c.length>1?"Les deux derniers paient":"Le dernier paie"} le café</h2>${L.map(l=>`<div class="ln"><span class="ln-n">${esc(nameOf(l.id))}</span><div class="ln-t"><span class="tk">${esc(nameOf(l.id).charAt(0).toUpperCase())}</span></div></div>`).join("")}<p class="rr" aria-live="polite"></p><button class="ghost" type="button">Passer</button></div>`;document.body.appendChild(ov);const tk=[...ov.querySelectorAll(".tk")],t0=performance.now(),tm=Math.max(...L.map(l=>l.T));let raf=0,fin=false;const finish=()=>{if(fin)return;fin=true;cancelAnimationFrame(raf);tk.forEach((e,i)=>{e.style.left="calc(100% - 28px)";if(c.includes(L[i].id))e.classList.add("lo")});ov.querySelector(".rr").textContent=list(c)+(c.length>1?" paient":" paie")+" le café !";setTimeout(()=>{ov.remove();racing=false;done()},1200)};const step=now=>{const s=(now-t0)/1000;L.forEach((l,i)=>{const p=Math.pow(Math.min(1,s/l.T),l.a);tk[i].style.left=`calc((100% - 28px)*${p})`});if(s<tm)raf=requestAnimationFrame(step);else finish()};ov.querySelector("button").onclick=finish;raf=requestAnimationFrame(step)}
+function togglePresent(id){const t=todayStr(),index=state.draws.findIndex(d=>d.id===t),previous=index>=0?state.draws[index]:null,cur=previous||{id:t,date:t,present:[],payers:[],edited:false},present=cur.present.includes(id)?cur.present.filter(x=>x!==id):[...cur.present,id],next={...cur,id:t,date:t,present,payers:pays(cur).filter(x=>present.includes(x)),price:state.price,edited:!!cur.edited};if(index>=0)state.draws[index]=next;else state.draws.push(next);state.msg="";render();persist(async()=>{const {error}=await state.db.from("draws").upsert([next]);if(error){const i=state.draws.findIndex(d=>d.id===t);if(previous){if(i>=0)state.draws[i]=previous;else state.draws.push(previous)}else state.draws=state.draws.filter(d=>d.id!==t);throw error}})}
+function upd(id,fn){const d=getDraw(id);if(!d)return;const n={id,date:id,present:[...(d.present||[])],payers:[...pays(d)],price:priceOf(d),edited:true};fn(n);const i=state.draws.findIndex(x=>x.id===id);if(i>=0)state.draws[i]={...state.draws[i],...n};else state.draws.push({...n});render();persist(()=>state.db.from("draws").upsert([n]))}
+function vToday(){const t=todayStr(),cur=getDraw(t),pr=(cur&&cur.present)||[],act=state.people.filter(p=>p.active!==false).sort(byName),pv=prevDraw(),py=cur?pays(cur):[],has=py.length;return `<section class="hero">${has?`<p class="who">${esc(list(py))}</p><p class="sub">${has>1?"paient":"paie"} le café aujourd’hui</p>`:`<p class="who muted">Qui paie ?</p><p class="sub">Coche les présents, puis lance la course.</p>`}<button class="main" data-act="draw" ${pr.length?"":"disabled"}>${has?(state.confirmDel==="redraw"?"Confirmer : remplacer le tirage du jour":"Relancer la course"):"Lancer la course"}</button><button class="ghost" data-act="selall" style="margin-left:8px">Tout sélectionner</button><p class="sub" style="margin:14px 0 0">${pr.length} participant${pr.length>1?"s":""} aujourd’hui</p>${pv?`<p class="sub" style="margin:4px 0 0">Dernier tirage : ${esc(list(pays(pv)))}, le ${fmt(pv.id)}. À l’écart du tirage.</p>`:""}</section><h2>Présents aujourd’hui (${pr.length})</h2><ul class="list">${act.map(p=>`<li><label><input type="checkbox" data-act="pres" data-id="${p.id}" ${pr.includes(p.id)?"checked":""}><span>${esc(p.name)}</span></label></li>`).join("")||'<li class="empty">Ajoute des personnes dans l’onglet Équipe.</li>'}</ul>`}
+function vHist(){const l=[...state.draws].sort((a,b)=>a.id<b.id?1:-1);return `<div class="row"><input type="date" id="nd" value="${state.ndVal}"><button class="btn" data-act="newday">Ajouter un jour</button></div>`+(l.map(d=>{const o=state.editing===d.id,pr=d.present||[],py=pays(d);return `<div class="card"><div class="hd"><div><b>${fmt(d.id)}</b><br><span class="muted">${py.length?esc(list(py))+(py.length>1?" ont payé":" a payé"):"Pas de payeur"}, ${pr.length} présents${priceOf(d)&&pr.length?", "+eur(amt(d)):""}${d.edited?", modifié":""}</span></div><button class="ghost" data-act="edit" data-d="${d.id}">${o?"Fermer":state.confirmDel==="edit:"+d.id?"Confirmer":"Modifier"}</button></div>${state.confirmDel==="edit:"+d.id?'<p class="sub">Confirme pour éditer ce tirage.</p>':""}${o?`<p class="fld">Qui a payé</p><div class="chips">${state.people.filter(p=>p.active!==false||py.includes(p.id)||pr.includes(p.id)).map(p=>`<label><input type="checkbox" data-act="hpay" data-d="${d.id}" data-id="${p.id}" ${py.includes(p.id)?"checked":""}>${esc(p.name)}</label>`).join("")}</div><p class="fld">Présents</p><div class="chips">${state.people.filter(p=>p.active!==false||pr.includes(p.id)).map(p=>`<label><input type="checkbox" data-act="hpres" data-d="${d.id}" data-id="${p.id}" ${pr.includes(p.id)?"checked":""}>${esc(p.name)}</label>`).join("")}</div><button class="ghost danger" data-act="del" data-d="${d.id}">${state.confirmDel===d.id?"Confirmer la suppression":"Supprimer ce jour"}</button>`:""}</div>`}).join("")||'<p class="empty">Aucun tirage pour l’instant.</p>')}
+function vRecs(st){const rs=state.people.map(p=>({p,s:st[p.id]||{n:0,p:0}})).filter(r=>r.s.n>0);if(!rs.length)return"";const ds=yd().filter(d=>(d.present||[]).length).sort((a,b)=>a.id<b.id?-1:1),cur={},best={},c=[];ds.forEach(d=>{const pa=pays(d);(d.present||[]).forEach(id=>{if(pa.includes(id))cur[id]=0;else{cur[id]=(cur[id]||0)+1;if(cur[id]>(best[id]||0))best[id]=cur[id]}})});const mx=(a,f)=>a.reduce((x,y)=>f(y)>f(x)?y:x,a[0]),s=n=>n>1?"s":"",gp=mx(rs,r=>r.s.p);if(gp.s.p>0)c.push(["Plus gros payeur",gp.p.name,`${gp.s.p} café${s(gp.s.p)} payé${s(gp.s.p)}`]);const lk=[...rs].sort((a,b)=>a.s.p/a.s.n-b.s.p/b.s.n||b.s.n-a.s.n)[0];c.push(["Le plus chanceux",lk.p.name,`${lk.s.n} présence${s(lk.s.n)}, ${lk.s.p} payé${s(lk.s.p)}`]);const pool=rs.filter(r=>r.s.n>=3),ul=[...(pool.length?pool:rs)].sort((a,b)=>b.s.p/b.s.n-a.s.p/a.s.n||b.s.n-a.s.n)[0];if(ul.s.p>0)c.push(["Le plus malchanceux",ul.p.name,`${Math.round(100*ul.s.p/ul.s.n)} % de ses présences`]);const bk=Object.keys(best);if(bk.length){const b=mx(bk,id=>best[id]);c.push(["Plus longue série sans payer",nameOf(b),`${best[b]} présence${s(best[b])} d’affilée`])}const ak=state.people.filter(p=>p.active!==false&&cur[p.id]>0);if(ak.length){const a=mx(ak,p=>cur[p.id]);c.push(["Série en cours",a.name,`${cur[a.id]} présence${s(cur[a.id])} sans payer`])}if(ds.length){const t=mx(ds,d=>d.present.length);c.push(["Plus grosse tablée",fmt(t.id),`${t.present.length} présents`+(priceOf(t)?", "+eur(amt(t)):"")])}return `<h2>Records</h2><div class="recs">${c.map(x=>`<div class="rec"><span class="rl">${x[0]}</span><b>${esc(x[1])}</b><span class="rd">${esc(x[2])}</span></div>`).join("")}</div>`}
+function vYears(){const cy=String(new Date().getFullYear()),ys=[...new Set([cy,...state.draws.map(d=>d.id.slice(0,4))])].sort().reverse();return `<h2>Années</h2><div class="chips">${ys.map(y=>`<button class="yr" data-act="year" data-v="${y}" ${y===state.statYear?'aria-current="true"':""}>${y}${y===cy?" (en cours)":""}</button>`).join("")}</div><p class="sub" style="margin-top:8px">Les compteurs repartent de zéro chaque année. Les années passées restent consultables ici.</p>`}
+function vStats(){const st=stats(),rows=state.people.map(p=>({p,s:st[p.id]||{n:0,p:0,m:0,last:""}})).filter(r=>r.p.active!==false||r.s.n>0).sort((a,b)=>b.s.p-a.s.p||byName(a.p,b.p)),dr=yd().filter(d=>pays(d).length),tot=dr.reduce((s,d)=>s+amt(d),0),nd=dr.length||1,cr=rows.filter(r=>r.s.n).sort((a,b)=>b.s.p/b.s.n-a.s.p/a.s.n||b.s.n-a.s.n),mx=Math.max(1,...cr.map(r=>r.s.n));const chart=cr.length?`<h2>Qui paie le plus selon ses présences</h2><div class="chart ${state.anim?"anim":""}"><p class="lg"><span class="k1"></span>Présences<span class="k2"></span>Payés</p><p class="sub" style="margin:0 0 8px">Classés du plus souvent au moins souvent payé par présence.</p>${cr.map((r,i)=>`<div class="pc"><div class="ph"><b>${esc(r.p.name)}</b><span>${r.s.p} payé${r.s.p>1?"s":""} sur ${r.s.n} présence${r.s.n>1?"s":""}, soit ${Math.round(100*r.s.p/r.s.n)} %</span></div><div class="pr"><span class="pl">Présences</span><div class="pt"><span class="b1" style="width:${100*r.s.n/mx}%;--i:${i}"></span></div><span class="pn">${r.s.n}</span></div><div class="pr"><span class="pl">Payés</span><div class="pt"><span class="b2" style="width:${100*r.s.p/mx}%;--i:${i}"></span></div><span class="pn">${r.s.p}</span></div></div>`).join("")}</div>`:"";return `<p class="sub">${yd().reduce((s,d)=>s+pays(d).length,0)} cafés payés en ${state.statYear}.${tot?` Montant total : ${eur(tot)}, soit ${eur(tot/nd)} par tirage en moyenne.`:(state.price?"":" Définis le prix dans Options pour voir les montants.")}</p>${vRecs(st)}${chart}<div class="tw"><table><tr><th>Nom</th><th>Présences</th><th>Payés</th><th>Part payée</th><th>Montant</th><th>Dernier</th></tr>${rows.map(r=>`<tr><td>${esc(r.p.name)}</td><td>${r.s.n}</td><td>${r.s.p}</td><td>${r.s.n?Math.round(100*r.s.p/r.s.n)+" %":"—"}</td><td>${r.s.m?eur(r.s.m):"—"}</td><td>${r.s.last?fmt(r.s.last):"—"}</td></tr>`).join("")||'<tr><td class="empty" colspan="6">Pas encore de données.</td></tr>'}</table></div>${vYears()}`}
+function vTeam(){const a=state.people.filter(p=>p.active!==false).sort(byName),i=state.people.filter(p=>p.active===false).sort(byName);return `<div class="row"><input type="text" id="nn" placeholder="Prénom" value="${esc(state.newName)}" autocomplete="off"><button class="btn" data-act="add">Ajouter</button></div><ul class="list">${a.map(p=>`<li class="pl"><span>${esc(p.name)}</span><button class="ghost" data-act="rm" data-id="${p.id}">Retirer</button></li>`).join("")||'<li class="empty">Personne pour l’instant.</li>'}</ul>${i.length?`<h2>Anciens</h2><ul class="list">${i.map(p=>`<li class="pl"><span>${esc(p.name)}</span><button class="ghost" data-act="react" data-id="${p.id}">Réactiver</button></li>`).join("")}</ul>`:""}`}
+function vOpts(){return `<label class="fld">Prix d’un café (€)<input type="text" inputmode="decimal" id="pr" data-act="price" value="${state.price?String(state.price).replace(".",","):""}" placeholder="1,20" autocomplete="off" style="display:block;margin-top:4px;width:100%"></label><p class="sub">Le prix sert à calculer le montant de chaque tirage. Les tirages passés conservent leur prix enregistré.</p>`}
+document.addEventListener("click",e=>{const b=e.target.closest("button[data-act]");if(!b)return;const a=b.dataset.act,d=b.dataset.d,id=b.dataset.id;if(a==="tab"){state.tab=b.dataset.v;state.anim=state.tab==="stats";state.editing=null;state.confirmDel=null;render()}else if(a==="year"){state.statYear=b.dataset.v;state.anim=true;render()}else if(a==="draw"){const t=todayStr(),cur=getDraw(t);if(cur&&pays(cur).length&&state.confirmDel!=="redraw"){state.confirmDel="redraw";render();return}state.confirmDel=null;pick()}else if(a==="selall"){const t=todayStr(),cur=getDraw(t)||{present:[],payers:[],edited:false},ids=state.people.filter(p=>p.active!==false).map(p=>p.id);if(!ids.length)return;const present=ids.every(x=>cur.present.includes(x))?cur.present.filter(x=>!ids.includes(x)):[...new Set([...cur.present,...ids])],next={id:t,date:t,present,payers:pays(cur).filter(x=>present.includes(x)),price:state.price,edited:!!cur.edited};const i=state.draws.findIndex(x=>x.id===t);if(i>=0)state.draws[i]=next;else state.draws.push(next);render();persist(()=>state.db.from("draws").upsert([next]))}else if(a==="edit"){if(state.editing===d){state.editing=null;state.confirmDel=null}else if(state.confirmDel==="edit:"+d){state.editing=d;state.confirmDel=null}else state.confirmDel="edit:"+d;render()}else if(a==="del"){if(state.confirmDel===d){state.confirmDel=null;state.editing=null;state.draws=state.draws.filter(x=>x.id!==d);render();persist(()=>state.db.from("draws").delete().eq("id",d))}else{state.confirmDel=d;render()}}else if(a==="newday"){const v=state.ndVal;if(!v)return;const ex=getDraw(v);if(ex&&pays(ex).length){state.confirmDel="edit:"+v;render();return}state.editing=v;const next={id:v,date:v,present:[],payers:[],price:state.price,edited:true};if(ex){state.confirmDel="edit:"+v;render();return}state.draws.push(next);render();persist(()=>state.db.from("draws").upsert([next]))}else if(a==="add"){const n=state.newName.trim();if(!n)return;state.newName="";render();if(!state.people.some(p=>p.active!==false&&p.name.toLowerCase()===n.toLowerCase()))persist(()=>state.db.from("people").insert([{name:n,active:true}]))}else if(a==="rm"){state.people=state.people.map(p=>p.id===id?{...p,active:false}:p);render();persist(()=>state.db.from("people").update({active:false}).eq("id",id))}else if(a==="react"){state.people=state.people.map(p=>p.id===id?{...p,active:true}:p);render();persist(()=>state.db.from("people").update({active:true}).eq("id",id))}});
+document.addEventListener("change",e=>{const t=e.target,a=t.dataset.act,d=t.dataset.d,id=t.dataset.id;if(a==="pres")togglePresent(id);else if(a==="price"){const v=parseFloat(t.value.replace(",","."));if(Number.isFinite(v)&&v>=0){state.price=v;render();persist(()=>state.db.from("settings").upsert([{key:"main",price:v}]))}}else if(a==="hpres")upd(d,n=>{n.present=n.present.includes(id)?n.present.filter(x=>x!==id):[...n.present,id];n.payers=n.payers.filter(x=>n.present.includes(x))});else if(a==="hpay")upd(d,n=>{n.payers=n.payers.includes(id)?n.payers.filter(x=>x!==id):[...n.payers,id];if(n.payers.includes(id)&&!n.present.includes(id))n.present.push(id)})});
+document.addEventListener("input",e=>{if(e.target.id==="nn")state.newName=e.target.value;if(e.target.id==="nd")state.ndVal=e.target.value});
 document.addEventListener("keydown",e=>{if(e.key==="Enter"&&e.target.id==="nn"){e.preventDefault();document.querySelector('[data-act="add"]').click()}});
 render();
-(async()=>{
-  if(!SUPABASE_URL || SUPABASE_URL.startsWith("VOTRE")){nodb=true;render();return;}
-  supabaseClient = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY, {
-    auth: { persistSession: false }
-  });
-  
-  timer=setTimeout(()=>{if(!(loaded.p&&loaded.d)){msg="Données injoignables pour l’instant. Vérifie ta connexion.";render()}},10000);
-  
-  const fetchAll = async () => {
-    const [resP, resD, resS] = await Promise.all([
-      supabaseClient.from("people").select("*"),
-      supabaseClient.from("draws").select("*"),
-      supabaseClient.from("settings").select("*").eq("key", "main").maybeSingle()
-    ]);
-    if(resP.error) throw resP.error;
-    if(resD.error) throw resD.error;
-    people = resP.data || [];
-    draws = resD.data || [];
-    price = (resS.data && resS.data.price) || 0;
-    loaded.p = true;
-    loaded.d = true;
-    clearTimeout(timer);
-    msg = "";
-    render();
-  };
-
-  try {
-    await fetchAll();
-    supabaseClient.channel("public-db")
-      .on("postgres_changes", { event: "*", schema: "public" }, async () => { await fetchAll(); })
-      .subscribe();
-  } catch(e) {
-    msg = "Lecture impossible : " + ((e && (e.message || e.code)) || "erreur");
-    render();
-  }
-})();
+(async()=>{if(!SUPABASE_URL||SUPABASE_URL.startsWith("VOTRE")){state.nodb=true;render();return}state.db=window.supabase.createClient(SUPABASE_URL,SUPABASE_ANON_KEY,{auth:{persistSession:false}});state.timer=setTimeout(()=>{if(!(state.loaded.people&&state.loaded.draws&&state.loaded.settings)){state.msg="Données injoignables pour l’instant. Vérifie ta connexion.";render()}},10000);try{await fetchAll();state.db.channel("public-db").on("postgres_changes",{event:"*",schema:"public"},async()=>{try{await fetchAll()}catch(e){state.msg="Lecture impossible : "+((e&&(e.message||e.code))||"erreur");render()}}).subscribe()}catch(e){state.msg="Lecture impossible : "+((e&&(e.message||e.code))||"erreur");render()}})();
 </script></body></html>
