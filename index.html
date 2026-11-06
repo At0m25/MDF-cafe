@@ -141,9 +141,50 @@ function race(present,c,done){
   raf=requestAnimationFrame(step);
 }
 function togglePresent(id){
-  const t=todayStr(),cur=getDraw(t)||{present:[],payers:[],edited:false};
-  const present=cur.present.includes(id)?cur.present.filter(x=>x!==id):[...cur.present,id];
-  w(()=>supabaseClient.from("draws").upsert([{id:t,date:t,present,payers:pays(cur).filter(x=>present.includes(x)),price,edited:!!cur.edited}]));
+  const t = todayStr();
+  const index = draws.findIndex(d => d.id === t);
+  const previous = index >= 0 ? draws[index] : null;
+  const cur = previous || {id:t, date:t, present:[], payers:[], edited:false};
+
+  const present = cur.present.includes(id)
+    ? cur.present.filter(x => x !== id)
+    : [...cur.present, id];
+
+  const next = {
+    ...cur,
+    id: t,
+    date: t,
+    present,
+    payers: pays(cur).filter(x => present.includes(x)),
+    price,
+    edited: !!cur.edited
+  };
+
+  // Mise à jour locale immédiate
+  if (index >= 0) draws[index] = next;
+  else draws.push(next);
+
+  msg = "";
+  render();
+
+  // Enregistrement en arrière-plan dans Supabase
+  w(async () => {
+    const { error } = await supabaseClient
+      .from("draws")
+      .upsert([next]);
+
+    if (error) {
+      // Restaure les données précédentes si l'enregistrement échoue
+      const currentIndex = draws.findIndex(d => d.id === t);
+      if (previous) {
+        if (currentIndex >= 0) draws[currentIndex] = previous;
+        else draws.push(previous);
+      } else {
+        draws = draws.filter(d => d.id !== t);
+      }
+      throw error;
+    }
+  });
 }
 function upd(id,fn){
   const d=getDraw(id);if(!d)return;
